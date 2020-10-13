@@ -4,10 +4,10 @@ import HomeScreen from "./HomeScreen";
 
 const WelcomeScreen = ({ navigation }) => {
 	return (
-		<ImageBackground style={styles.background} source={require("./../assets/woman.jpg")}>
+		<ImageBackground style={styles.background} source={require("./../assets/snowboard.jpg")}>
 			<View style={styles.logoContainer}>
-				<Image source={require("./../assets/hotsun.png")} style={styles.logo} />
-				<Text style={styles.logoText}>Buy and sell</Text>
+				<Image source={require("./../assets/w.png")} style={styles.logo} />
+				<Text style={styles.logoText}>FOLLOW THE SNOW!</Text>
 			</View>
 			<Text style={[styles.skipButton, styles.buttons]} onPress={() => navigation.navigate("Home", { name: "Jane" })}>
 				SKIP
@@ -33,11 +33,15 @@ const styles = StyleSheet.create({
 		width: "100%",
 	},
 	logo: {
-		width: 200,
+		height: 100,
+		width: 100,
 		backgroundColor: "#ffffff",
 	},
 	logoText: {
 		color: "#ffffff",
+		fontSize: 25,
+		fontWeight: "bold",
+		letterSpacing: -1,
 	},
 	buttonContainer: {
 		width: "100%",
