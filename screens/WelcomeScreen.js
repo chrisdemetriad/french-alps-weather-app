@@ -1,13 +1,18 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { View, Text, ImageBackground, StyleSheet, Image, TouchableOpacity, Button } from "react-native";
-import HomeScreen from "./HomeScreen";
+import { AppLoading } from "expo";
+import { useFonts, RobotoCondensed_300Light, RobotoCondensed_300Light_Italic, RobotoCondensed_400Regular, RobotoCondensed_400Regular_Italic, RobotoCondensed_700Bold, RobotoCondensed_700Bold_Italic } from "@expo-google-fonts/roboto-condensed";
 
 const WelcomeScreen = ({ navigation }) => {
+	let [fontsLoaded] = useFonts({
+		RobotoCondensed_300Light,
+	});
+
 	return (
 		<ImageBackground style={styles.background} source={require("./../assets/snowboard.jpg")}>
 			<View style={styles.logoContainer}>
-				<Image source={require("./../assets/w.png")} style={styles.logo} />
-				<Text style={styles.logoText}>FOLLOW THE SNOW!</Text>
+				<Image source={require("./../assets/splash.png")} style={styles.logo} />
+				<Text style={styles.motto}>FOLLOW THE SNOW!</Text>
 			</View>
 			<Text style={[styles.skipButton, styles.buttons]} onPress={() => navigation.navigate("Home", { name: "Jane" })}>
 				SKIP
@@ -37,11 +42,10 @@ const styles = StyleSheet.create({
 		width: 100,
 		backgroundColor: "#ffffff",
 	},
-	logoText: {
+	motto: {
 		color: "#ffffff",
-		fontSize: 25,
-		fontWeight: "bold",
-		letterSpacing: -1,
+		fontSize: 35,
+		fontFamily: "RobotoCondensed-Light",
 	},
 	buttonContainer: {
 		width: "100%",
