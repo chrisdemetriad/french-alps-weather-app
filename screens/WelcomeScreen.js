@@ -1,18 +1,20 @@
 import React from "react";
-import { View, Text, ImageBackground, StyleSheet, Image, TouchableOpacity } from "react-native";
+import { View, Text, ImageBackground, StyleSheet, Image, TouchableOpacity, Button } from "react-native";
 import HomeScreen from "./HomeScreen";
 
-const WelcomeScreen = () => {
+const WelcomeScreen = ({ navigation }) => {
 	return (
-		<ImageBackground style={styles.background} source={require("./../assets/pax.webp")}>
+		<ImageBackground style={styles.background} source={require("./../assets/woman.jpg")}>
 			<View style={styles.logoContainer}>
-				<Image source={require("./../assets/logo.png")} style={styles.logo} />
+				<Image source={require("./../assets/hotsun.png")} style={styles.logo} />
 				<Text style={styles.logoText}>Buy and sell</Text>
 			</View>
+			<Text style={[styles.skipButton, styles.buttons]} onPress={() => navigation.navigate("Home", { name: "Jane" })}>
+				SKIP
+			</Text>
 			<TouchableOpacity style={styles.buttonContainer} onPress={() => alert("To be implemented!")}>
 				<Text style={[styles.loginButton, styles.buttons]}>LOGIN or REGISTER</Text>
 			</TouchableOpacity>
-			<Text style={[styles.skipButton, styles.buttons]}>SKIP</Text>
 		</ImageBackground>
 	);
 };
@@ -41,10 +43,11 @@ const styles = StyleSheet.create({
 		width: "100%",
 	},
 	loginButton: {
-		backgroundColor: "#f5c565",
+		backgroundColor: "#00aeef",
 	},
 	skipButton: {
-		backgroundColor: "#4ecdc4",
+		color: "#fff",
+		fontSize: 12,
 	},
 	buttons: {
 		width: "100%",
